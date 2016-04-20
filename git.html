@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GIT - Help</title>
+    <style type="text/css">
+        body {
+            padding-left: 30px;
+            background-color: black;
+            color: white;
+        }
+        h2 {
+            text-align: center;
+        }
+        p {
+            padding-left: 30px;
+            font-family: Roboto;
+        }
+        img {
+            width: 200px;
+            height: 25px
+        }
+    </style>
+</head>
+<body>
+        <img src="/Users/jasalgir/Pictures/helloworld.gif" alt="" />
+        <hr>
+        <h2> C O N F I G U R A C I O N</h2>
+        <hr>
+        <h4>VER CONFIGURACION</h4>
+        <p>
+            $ git config --global --list🆗 // para ver la configuracion global de git
+            <br>
+            $ git config --global user.name "nombre de usuario"🆗 // cambia o añade nombre de usuario
+            <br>
+            $ git config --global [variable git] "valor que quieres guardar"🆗  // para añadir o cambiar valores
+            <br>
+        </p>
+        <h4>CREAR UN LOG ALIAS:</h4>
+        <p>
+            $ git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"🆗
+            <br>
+            $ git superlog🆗  // Ejecuta el alias creado anteriormente.
+            <br>
+        </p>
+
+        <h4>LOG MEJORADO:</h4>
+        <p>
+            $ git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all🆗
+        </p>
+        <h4>CONEXION CON GITHUB</h4>
+        <P>
+            $ ssh-keygen -t rsa -b 4096 -C "mail de conexion a github"🆗 // para crear las claves que permitirán la comunicación.
+            <br>
+            $ git remote add origin [dirección que nos da github del repositorio]🆗 // repositorio debe haber sido creado con anterioridad. 'origin' es el nombre que Github le da al repositorio.
+            <br>
+            $ git push origin master🆗   ||  para hacer commit al repositorio remoto.
+            <br>
+
+        </P>
+        <hr>
+        <h2>
+            G E N E R A L
+        </h2>
+        <hr>
+        <h4>
+            INICIAR GIT
+        </h4>
+        <p>
+            $ git init🆗  /// desde el directorio del repositorio.
+            <br>
+        </p>
+        <h4>
+            AÑADIR AL COMMIT:
+        </h4>
+        <p>
+            $ git add "lo que necesitas añadir"🆗<br>
+            $ git add -A🆗   // añade todo al commit <br>
+        </p>
+        <h4>
+            CLONAR REPOSITORIO
+        </h4>
+        <P>
+            $ git clone [https://direccion que nos sumnistra el lugar donde se ubica el repo.]🆗
+            <br>
+        </P>
+        <h4>
+            LISTADO DE COMMITS
+        </h4>
+        <p>
+            $ git shortlog🆗   // extrae información de los commits
+            <br>
+            $ git log🆗
+            <br>
+            $ git [alias creado previamente]🆗  // ejemplo: $ git superlog //
+            <br>
+        </p>
+        <h4>
+            ESTADO DE LOS COMMITS
+        </h4>
+        <P>
+            $ git status🆗
+        </P>
+        <hr>
+        <h2>
+            R A M A S
+        </h2>
+        <hr>
+        <h4>
+            CREAR RAMA:
+        </h4>
+        <p>
+            $ git branch "nombre rama"🆗<br>
+            $ git checkout -b "nombre rama"🆗<br>
+        </p>
+        <h4>
+            CAMBIAR DE RAMA:
+        </h4>
+        <p>
+            $ git checkout master🆗  // para cambiar a la rama "master"<br>
+            $ git checkout "nombre rama"🆗<br>
+            $ git checkout [nombre de TAG]🆗 <br>
+        </p>
+        <h4>
+            FUSIONAR RAMAS (desde master o rama padre):
+        </h4>
+        <p>
+            $ git merge "rama a fusionar"🆗  // fusionaremos desde la rama donde queremos absorver <br><br>
+            - entraremos en una pantalla en la cual pulsaremos "o" para insertar una descripción de la fusión.
+            <br>
+                Con "esc" nos saldremos del modo edición. <br>
+                Con ":x" grabaremos y finalizará la fusión. <br>
+        </p>
+        <h4>
+            REBASE RAMAS (desde una rama hija forzamos la unión de las ramas, añadiendo todo lo de la rama "master",
+            manteniendose ambas ramas. Tras esto, tocará fusionar ramas.):
+        </h4>
+        <p>
+            $ git rebase "rama a incluir"🆗
+        </p>
+        <h4>
+            BORRAR RAMA:
+        </h4>
+        <p>
+            $ git branch -d "rama"🆗
+        </p>
+        <h4>
+            MODIFICAR ULTIMO COMMIT:
+        </h4>
+        <p>
+            $ git commit -am "mensaje" --amend🆗  //  "-am" incluye el git add, "--amend" modifica último commit.
+        </p>
+        <hr>
+        <h2>
+            T A G S
+        </h2>
+        <hr>
+        <h4>
+            CREAR TAGS A LOS COMMITS:
+        </h4>
+        <p>
+            $ git tag -a [version] -m [mensaje]🆗 <br>
+            $ git tag [version]🆗 <br>
+            $ git tag -a [version] [id de commit]🆗 // si entrara en modo 'edicion' para salir del modo ESC y despues ':x' para salir y grabar<br>
+
+        </p>
+        <h4>
+            CONSULTAR TAG
+        </h4>
+        <p>
+            $ git tag🆗
+        </p>
+        <h4>
+            CONSULTAR POR EL NOMBRE DEL TAG
+        </h4>
+        <p>
+            $ git show [nombre del tag ejem: 'v1.0']🆗 <br>
+            $ git tag -l "[version a buscar]"🆗  //  busca la version indicada. <br>
+        </p>
+
+
+</body>
+</html>
